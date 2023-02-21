@@ -13,6 +13,7 @@
 심지어 테스트 위주의 개발을 이번에 처음 해봤다 ~~(현재 테스트 코드는 뭔가 이상한거 같다..)~~  
 현재는 아무래도 자바에 대한 개념이 내가 생각한 것 보다 더 많이 부족한 것 같다
 
+<hr>
 
 ### 2023-02-20
 - [java 숫자야구](https://github.com/Naellu/baseballgame-ref)<br>
@@ -88,6 +89,26 @@ userInput과 각 오류를 하나로 묶어서 더 깔끔하게 하는 방법이
 한 곳에 따로 예외처리를 할 수 있었을 것 같았는데 아쉬웠던 부분이다  
 말그대로 예외 처리를 떠넘기는 방식인데  
 이렇게 많이 사용하면 예외 발생 시 어디를 찾아가야 하는지 모를 것이라고 생각해 상당히 안좋다고 생각하는 코드였다  
+
+<hr>
+
+### 2023-02-21
+객체지향을 공부하면서 조금만 수정했다  
+![image](https://user-images.githubusercontent.com/119831581/220294451-d5bd9eeb-7a9b-4ea8-83e9-eccac864f24d.png)
+![image](https://user-images.githubusercontent.com/119831581/220294497-21945718-7c5c-4312-b5be-06c3a212eb0e.png)<br>
+Distinction클래스에 하나로 뭉쳐있던 메서드를 나눠보았다  
+
+
+![image](https://user-images.githubusercontent.com/119831581/220294898-abd5288c-11ab-4238-b585-a32df0886470.png)<br>
+ComputerNumber의 수는 한 게임마다 불변인 상태를 요구하기 때문에 [정적 팩토리 메서드](https://github.com/Naellu/TIL/blob/master/JAVA/OOP/Static-Factory-Method.md)를 적용해보았다  
+
+
+![image](https://user-images.githubusercontent.com/119831581/220296042-79eb6242-cd86-4962-ae6e-4581fd8a5ce7.png)<br>
+정적 팩토리 메서드 적용으로 메서드 호출마다 ComputerNumber의 객체 생성을 인스턴스 호출로 바뀌게 되었다
+
+
+<hr>
+
 
 
 
