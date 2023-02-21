@@ -4,7 +4,7 @@
 
 - 그 외엔 notion으로 정리하여 한번에 올립니다
   - HTML & CSS
-  - Java
+  - [Java](https://github.com/Naellu/TIL/blob/master/JAVA/list-java.md)
   - JavaScript
   - DB
   - Spring & SpringBoot
