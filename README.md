@@ -8,5 +8,5 @@
   - JavaScript
   - DB
   - Spring & SpringBoot
-  - CS
+  - [CS](https://github.com/Naellu/TIL/blob/master/CS/cs-list.md)
   - git & github
