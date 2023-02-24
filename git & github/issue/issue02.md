@@ -8,4 +8,4 @@
     - 이미지 파일이 모인 폴더와 텍스트만 모아둔 md파일을 github에 그냥 올린다면 텍스트는 정상으로 나오고 이미지 파일은 깨져서 나오게 된다
     - github에 이미지 폴더를 따로 만들어 거기에 모아둔 후 md파일 안에서 사용하고자 하는 이미지 위치에 해당 이미지 경로를 넣어준다
     
-    ![ScreenShot](issue02_img/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/119831581/221123068-06d4f750-eaf8-4509-9622-ce84b3579e47.png)
