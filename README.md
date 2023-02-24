@@ -9,4 +9,4 @@
   - DB
   - Spring & SpringBoot
   - [CS](https://github.com/Naellu/TIL/blob/master/CS/cs-list.md)
-  - git & github
+  - [git & github](https://github.com/Naellu/TIL/blob/master/git%20%26%20github/issue-list.md)
