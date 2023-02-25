@@ -1,6 +1,9 @@
+[숫자야구 링크](https://github.com/Naellu/baseballgame-ref)<br>
+
+
 ### 2023-02-17  
-- [java 숫자야구](https://github.com/Naellu/baseballgame-ref)<br>
-깃헙 오픈소스에 우테코 프리코스 과제인 숫자야구를 모방하여 만들어봤다<br>
+
+- 깃헙 오픈소스에 우테코 프리코스 과제인 숫자야구를 모방하여 만들어봤다<br>
 16일에는 하나의 클래스에 넣어 동작만 하는 숫자야구 프로그램을 했었는데  
 이번엔 설계를 먼저 구상해보고 작업을 해보는 위주로 가보고 싶었다  
 현재는 대략적으로 로직 분리를 해봤고 몇몇 기능만 테스트로 넣어놨다  
@@ -16,7 +19,7 @@
 <hr>
 
 ### 2023-02-20
-- [java 숫자야구](https://github.com/Naellu/baseballgame-ref)<br>
+
 ![image](https://user-images.githubusercontent.com/119831581/220084887-43c4ebf2-aebf-4e90-9dbe-aa27cd14be24.png)<br> 
 이번엔 저번 숫자야구를 대강이나마 완성시켜봤다  
 본래목적은 객체지향을 지키면서 완성시키기였지만 일단 이번건에서는 구현을 가장 최우선으로 두었다  
