@@ -1,7 +1,16 @@
+# 숫자야구 프로그램
+
 [숫자야구 링크](https://github.com/Naellu/baseballgame-ref)<br>
 
+#### 목차
+- [2023-02-17 숫자야구 첫 게시물](#2023-02-17)
+- [2023-02-20 숫자야구 완성](#2023-02-20)
+- [2023-02-21 숫자야구 수정](#2023-02-21)
+- [2023-03-08 간단한 설계 추가하여 새로운 숫자야구 작성](#2023-03-08)
 
-### 2023-02-17  
+<br>
+
+### 2023-02-17
 
 - 깃헙 오픈소스에 우테코 프리코스 과제인 숫자야구를 모방하여 만들어봤다<br>
 16일에는 하나의 클래스에 넣어 동작만 하는 숫자야구 프로그램을 했었는데  
@@ -17,6 +26,8 @@
 현재는 아무래도 자바에 대한 개념이 내가 생각한 것 보다 더 많이 부족한 것 같다
 
 <hr>
+
+<br>
 
 ### 2023-02-20
 
@@ -95,7 +106,10 @@ userInput과 각 오류를 하나로 묶어서 더 깔끔하게 하는 방법이
 
 <hr>
 
+<br>
+
 ### 2023-02-21
+
 객체지향을 공부하면서 조금만 수정했다  
 ![image](https://user-images.githubusercontent.com/119831581/220294451-d5bd9eeb-7a9b-4ea8-83e9-eccac864f24d.png)
 ![image](https://user-images.githubusercontent.com/119831581/220294497-21945718-7c5c-4312-b5be-06c3a212eb0e.png)<br>
@@ -112,8 +126,109 @@ ComputerNumber의 수는 한 게임마다 불변인 상태를 요구하기 때�
 
 <hr>
 
+<br>
 
+### 2023-03-08
 
+숫자야구를 리팩토링 하려고 했다가 건드리자니 다시 만드는게 빠를 것 같아서  
+이번엔 객체의 역할과 책임, 그리고 메시지를 생각하며 설계해보았다  
+하지만 처음부터 완벽하게 하지 않고 항상 변동이 있을 수 있다는 생각으로 설계했다  
 
+![image](https://user-images.githubusercontent.com/119831581/223635637-65a43ef2-d037-4388-a778-df8c47a59ade.png)  
+![image](https://user-images.githubusercontent.com/119831581/223639255-1693f6b9-7a5b-412f-9dd1-d48fd1eacb65.png)  
+![image](https://user-images.githubusercontent.com/119831581/223639322-431c44d9-e215-401c-a6c6-c840245b19f3.png)  
 
+[숫자야구 README](https://github.com/Naellu/baseballgame-ref/blob/master/README.md)  
 
+<br>
+
+- ConstValue
+
+![image](https://user-images.githubusercontent.com/119831581/223662718-1d5d4d22-bf28-4d56-b2af-00a76c85ba1d.png)  
+우선 모든 원시 타입의 값을 포장해 ConstValues라는 클래스에 모아두었다  
+해당 필드를 사용할 땐 가독성을 위해 `import static`으로 코드 내에 상수 클래스의 이름이 들어가지 않게 하였다  
+확실히 원시 타입 보다 명확한 이름을 가지게 되어 내가 사용할 때에도 헷갈리지 않게 되었다  
+
+다만 같은 값이지만 쓰임새가 다를 경우 이름을 다르게 지어줘야 하기에 몇몇 상수의 값이 중복되는 것이 있다  
+
+<br>
+
+- Computer
+
+![image](https://user-images.githubusercontent.com/119831581/223644996-82c94786-02cd-40bb-bb54-a79dd3a8bd2e.png)  
+Computer의 숫자도 이전과 똑같이 뽑는 방식으로 했다  
+다만 getter를 완전히 안쓸 수는 없을 것 같아  
+getter보다는 `initNumbers()`라는 이름으로 컴퓨터의 숫자를 만들어내는 행동을 명확하게 표현하려고 했다  
+
+이전엔 정적 팩토리 메서드를 사용했지만  
+이번 숫자야구에선 컴퓨터 객체를 미리 static에 올려두지 않아도 된다고 생각하여 사용하지 않았다  
+
+<br>
+
+- Number
+
+![image](https://user-images.githubusercontent.com/119831581/223640613-815f2d5e-7dfc-4ea5-9041-907ad3bb896e.png)  
+입력받는 숫자객체를 만들었다  
+
+<br>
+
+- User
+
+![image](https://user-images.githubusercontent.com/119831581/223640435-e3fc43f1-91ba-4d1d-b0a6-44f70521f3bb.png)  
+완벽한 일급 컬렉션은 아니지만 비슷하게나마 구현시켰다  
+입력값을 요청하고 검증을 통한 뒤 예외가 발생하지 않는다면 정상적으로 한 자리씩 나누어  
+User에 있는 List<String> 필드에 들어가게 하였다  
+
+처음엔 Number가 숫자를 받고, 한 자리씩 나누어 반환까지 하는 책임이 있었는데  
+User가 숫자를 한 자리씩 나누는 **행동**을 가지고 있어야  
+상태와 행동이 같이 있게된다는 생각이 들어 User에게 넘겼다  
+
+  
+<br>
+
+  
+- Referee
+
+![image](https://user-images.githubusercontent.com/119831581/223641515-43b072bb-ede0-488f-9d9a-c3c53352c26e.png)  
+이전에 `Distinction`클래스를 `Referee`로 바꾸어 심판이라는 이름을 명확하게 전달해보고자 하였다  
+볼과 스트라이크를 비교하는 로직은 foreach, stream 없이 구현했다  
+저번 기록에서 볼과 스트라이크를 판단하는 메서드를 더욱 세분화 시켰는데 가독성이 너무 안좋았었다  
+의미없는 매개변수의 이름과 쓸데없이 길어진 흐름이 방해가 되었다고 생각했다  
+
+판별한 볼과 스트라이크는 2자리의 int 배열에 담아 첫번째는 볼, 두번째는 스트라이크의 개수를 집어넣었다  
+
+  
+<br>
+
+- GameDisplay 
+ 
+![image](https://user-images.githubusercontent.com/119831581/223649138-bdc21b51-1bbd-4154-b18c-d0154dea9208.png)  
+![image](https://user-images.githubusercontent.com/119831581/223649179-cd288460-a302-41c9-8853-a9f3a2b3c6d5.png)  
+`GameDisplay`는 모든 출력을 담당하고 있다  
+심판이 판독한 볼과 스트라이크인 `ballAndStrike`를 요청해 받아오면 개수에 따라서 답변을 출력하는 역할이다  
+
+<br>
+
+- BaseballController
+
+![image](https://user-images.githubusercontent.com/119831581/223650194-492d7345-ab18-4fab-81c7-34f4c5274b23.png)  
+컨트롤러에선 모든 객체를 불러와 협업을 하도록 하고싶었다  
+컨트롤러를 제외한 다른 객체들은 자기자신이 맡은 역할만 수행하도록 했다  
+  
+또한 변수 및 메서드 네이밍도 조금 신경써서 이름만 보고도 무엇을 하는지 알 수 있게 하도록 했다  
+
+  
+<br>
+  
+  
+- 테스트 작성
+  
+![image](https://user-images.githubusercontent.com/119831581/223651667-1c200a32-e562-4a1d-bd4a-c067b5e35f04.png)  
+테스트 코드도 작성해보았다  
+`JUnit`이 아니라 `assertJ`를 사용해서 `assertThat()...` 형식으로 사용했다  
+많이 미숙하긴 하지만 작은 단위로나마 테스트를 해봤다는 것에 의미를 두었다  
+
+  
+  
+  
+  
