@@ -4,6 +4,7 @@
   - [Getter와 Setter의 사용을 줄이자](https://github.com/Naellu/TIL/blob/master/JAVA/getter-setter.md)
   - [제네릭(generic)](https://github.com/Naellu/TIL/blob/master/JAVA/generic.md)
   - [열거형(enum)](https://github.com/Naellu/TIL/blob/master/JAVA/enum.md)
+  - [스트림(stream)](https://github.com/Naellu/TIL/blob/master/JAVA/stream.md)
 
 
 - 객체지향 관련
