@@ -1,4 +1,7 @@
-# Today I Learned(TIL)
+# What I've learned
+
+학습한 것들을 정리하여 모아놓았습니다  
+
 - 목록
   - HTML & CSS
   - [Java](https://github.com/Naellu/TIL/blob/master/JAVA/list-java.md)
